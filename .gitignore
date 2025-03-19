@@ -1,0 +1,10 @@
+launch.json
+site/
+.DS_Store
+*.swp
+node_modules
+
+docs/week7/files/.browserslistrc
+docs/week7/files/.editorconfig
+docs/week7/files/.gitignore
+docs/week7/files/.vscode/
