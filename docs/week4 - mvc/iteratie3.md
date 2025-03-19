@@ -1,6 +1,9 @@
 # Iteratie 3: Model View Controller
 
-Nu we in staat zijn om vanuit onze frondcontroller een stuk tekst in de browser te laten zien, is het zaak om deze tekst in een separaat bestand onder te brengen. Het zou immers niet handig zij om in onze *Kernel* alle mogelijke pagina's op te nemen die ons framework kan laten zien: dat zou de klasse erg vervuilen met html, wat de boel onoverzichtelijk en ononderhoudbaar zou maken. 
+## Beschrijving van de inhoud
+Je implementeert een model-view-controllerarchitectuur in de eigen webapplicatie voor de eindopdracht door eigen routing en templating componenten te ontwikkelen aan de hand van de patterns die in de colleges besproken zijn.
+
+Nu we in staat zijn om vanuit onze frontcontroller een stuk tekst in de browser te laten zien, is het zaak om deze tekst in een separaat bestand onder te brengen. Het zou immers niet handig zij om in onze *Kernel* alle mogelijke pagina's op te nemen die ons framework kan laten zien: dat zou de klasse erg vervuilen met html, wat de boel onoverzichtelijk en ononderhoudbaar zou maken. 
 
 De html-bestanden die we gaan maken, vormen min of meer de *View* in [het model-view-controller ontwerppatroon](). Feitelijk zijn dit niet per se html-bestanden, maar meer staketsels van html, die we later via de controller gaan vullen met data uit het model. Hierom spreken we niet van html-bestanden, maar van html-*templates*, of kortweg *templates*.
 
@@ -13,8 +16,8 @@ app/
 ├─ composer.json
 ├─ public/
 ├─ src/
-├─ templates
-├─ vendor
+├─ templates/
+├─ vendor/
 ```
 
 ## Stap 1: het bestand `index.html`
@@ -54,3 +57,15 @@ echo $res;
     De methode `eval` is natuurlijk erg gevaarlijk, omdat dit gewoon de code als php uitvoert. De infrastructuur die we nu hebben opgezet maakt het bijvoorbeeld erg gemakkelijk om allerlei gevaarlijke scripts in ons framework te injecteren. Dat gaan we op een later tijdstip nog wel veranderen.
 
 ![Het resultaat na deze twee stappen van de derde iteratie](../imgs/iteratie3-1.png)
+
+## Stap 4: Een beter pad
+
+Op dit moment is het request dat we moeten doen om onze vriendelijke welkomstboodschap op het scherm te krijgen wat ingewikkeld, met die vraagtekens en is-gelijktekens. We willen eigenlijk een logischer en moderner pad intypen om hetzelfde resultaat te krijgen. Wat we eigenlijk willen is dat een request naar `http://localhost:8080/welkom/Henk` de welkomstpagina voor Henk laat zien.
+
+Om dit voor elkaar te krijgen, moeten we allereerst de klasse `Request` aanpassen. Deze klasse heeft een (nu nog lege) methode `getUri():UriInterface`. 
+
+
+```php
+
+
+
