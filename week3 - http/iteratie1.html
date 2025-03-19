@@ -1,0 +1,690 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Studiemateriaal voor de module webtechnologie 2 van de Hanzehogeschool Groningen">
+      
+      
+        <meta name="author" content="Bart Barnard en Ralf van den Broek">
+      
+      
+        <link rel="canonical" href="https://hanze-hbo-ict.github.io/webtech2/week3%20-%20http/iteratie1.html">
+      
+      
+        <link rel="prev" href="../index.html">
+      
+      
+        <link rel="next" href="iteratie2.html">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>iteratie 1: een volledige round-trip - Webtechnologie 2</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+      <link rel="stylesheet" href="../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../css/pandas-dataframe.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#iteratie-1-een-volledige-round-trip" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Webtechnologie 2" class="md-header__button md-logo" aria-label="Webtechnologie 2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Webtechnologie 2
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              iteratie 1: een volledige round-trip
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Webtechnologie 2" class="md-nav__button md-logo" aria-label="Webtechnologie 2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Webtechnologie 2
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Webtechnologie 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Week3   http
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Week3   http
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    iteratie 1: een volledige round-trip
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="iteratie1.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    iteratie 1: een volledige round-trip
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#beschrijving-van-de-inhoud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beschrijving van de inhoud
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stap-1-installeer-de-afhankelijkheden" class="md-nav__link">
+    <span class="md-ellipsis">
+      stap 1: installeer de afhankelijkheden
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stap-2-bestudeer-en-implementeer-de-message-gerelateerde-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      stap 2: bestudeer en implementeer de Message-gerelateerde interfaces.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stap-3-de-kernel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stap 3: De Kernel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stap-4-de-klasse-request-en-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stap 4: de klasse Request en Response
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#de-frontcontroller" class="md-nav__link">
+    <span class="md-ellipsis">
+      De frontcontroller
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="iteratie2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Iteratie 2: Uitbreiden van ServerRequest en Response
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Week4   mvc
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Week4   mvc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week4%20-%20mvc/iteratie3.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Iteratie 3: Model View Controller
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#beschrijving-van-de-inhoud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beschrijving van de inhoud
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stap-1-installeer-de-afhankelijkheden" class="md-nav__link">
+    <span class="md-ellipsis">
+      stap 1: installeer de afhankelijkheden
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stap-2-bestudeer-en-implementeer-de-message-gerelateerde-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      stap 2: bestudeer en implementeer de Message-gerelateerde interfaces.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stap-3-de-kernel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stap 3: De Kernel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stap-4-de-klasse-request-en-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stap 4: de klasse Request en Response
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#de-frontcontroller" class="md-nav__link">
+    <span class="md-ellipsis">
+      De frontcontroller
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="iteratie-1-een-volledige-round-trip">iteratie 1: een volledige round-trip<a class="headerlink" href="#iteratie-1-een-volledige-round-trip" title="Permanent link">&para;</a></h1>
+<h2 id="beschrijving-van-de-inhoud">Beschrijving van de inhoud<a class="headerlink" href="#beschrijving-van-de-inhoud" title="Permanent link">&para;</a></h2>
+<p>Tijdens het werkcollege pas je de ingebouwde functionaliteiten die PHP heeft om web requests te verwerken toe, met name de zogeheten superglobals. Daarnaast ga je aan de slag met het framework Symfony; dit framework zal gedurende het vak gebruikt worden als concreet voorbeeld van de behandelde patterns. In dit werkcollege pas je de component HttpFoundation toe, die de request- en responsestructuur van Symfony omvat.</p>
+<p>Je begint met de ontwikkeling van de eigen webapplicatie voor de eindopdracht door een eigen request handling component te ontwikkelen aan de hand van de patterns die in de colleges aan bod gekomen zijn. </p>
+<h2 id="stap-1-installeer-de-afhankelijkheden">stap 1: installeer de afhankelijkheden<a class="headerlink" href="#stap-1-installeer-de-afhankelijkheden" title="Permanent link">&para;</a></h2>
+<p>Nadat je de repository hebt gecloned, moet je de afhankelijkheden (dependencies) nog downloaden. De dependency-manager van php is <a href="https://getcomposer.org/">composer</a>. Zie ook <a href="https://video.hanze.nl/edit/0_d3k1p1hb">de betreffende kennisclip hierover</a>.  Composer maakt gebruik van het bestand <code>package.json</code> om te checken welke afhankelijkheden er allemaal in het project zitten. Als je op dit bestand klikt, verschijnt er een dialoogvenster waarmee je direct composer kunt downloaden. Als dit gedaan is, kun je vervolgens de dependencies installeren: die komen in de directory <code>vendor</code> terecht.</p>
+<p><img alt="Composer ziet dat de vendor-directory nog niet bestaat" src="../imgs/composer1.png" />
+<img alt="Download de meest recente composer.phar" src="../imgs/composer2.png" />
+<img alt="Installeer de dependencies" src="../imgs/composer3.png" /></p>
+<h2 id="stap-2-bestudeer-en-implementeer-de-message-gerelateerde-interfaces">stap 2: bestudeer en implementeer de <code>Message</code>-gerelateerde interfaces.<a class="headerlink" href="#stap-2-bestudeer-en-implementeer-de-message-gerelateerde-interfaces" title="Permanent link">&para;</a></h2>
+<p>Bestudeer de interfaces die gedefinieerd zijn in <code>vendor/Psr/http-message/src</code>. Deze week gaat het met name om de interfaces waarvan hieronder het diagram is weergegeven. </p>
+<p><img alt="De interfaces die we deze week moeten implementeren" src="../imgs/psr-7-deels.png" /></p>
+<p>Wat is het fundamentele werk dat een web-framework moet doen? Het omzetten van een <code>ServerRequest</code> in een <code>Response</code>. Niet toevalligerwijs zie je deze twee klassen in het schema onderaan weergegeven. De klasse <code>ServerRequest</code> implementeert de interface <code>ServerRequestInterface</code> en de klasse <code>Response</code> implementeert de interface <code>ResponseInterface</code>. </p>
+<p>Zoals je ziet overeft <code>ServerRequest</code> van <code>Request</code> en overerft zowel <code>Request</code> als <code>Response</code> van <code>Message</code>. Allereerst zul je dus deze hele hiërarchie van interfaces in implementerende klassen moeten weerspiegelen: doe dit in de directory <code>Http</code>. Als je in een klasse de betreffende interface implementeert, kun je met phpstorm automatisch stubs voor de betreffende methoden genereren.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Het is handigste wanneer je met het implementeren van de interfaces begint met de bovenste klassen, <code>Message</code> dus in dit geval. Op die manier voorkom je dat phpstorm stubs genereert van de hele hiërarchie van interfaces.</p>
+</div>
+<p><img alt="Automatisch genereren van stubs (null-implementaties) van de methoden uit de interface" src="../imgs/implement-stubs.png" /></p>
+<div class="admonition info">
+<p class="admonition-title"><code>ServerRequest</code> en <code>Request</code></p>
+<p>Meestal spreken we over het omzetten van een <code>Request</code> in een <code>Response</code>; waar komt dan ineens die <code>ServerRequest</code> vandaan?</p>
+<p>Als je de docs leest, staat er bij <code>Request</code> dat dit een representatie is van een <em>outgoing, client side request</em>, terwijl er bij <code>ServerRequest</code> staat dat dit een representatie is van een <em>incoming, server side HTTP request</em>. Het punt is dat webframeworks dikwijls zelf ook een request moeten maken, bijvoorbeeld naar een andere service of API. Hier is de <code>Request</code> voor nodig. Het <code>ServerRequest</code> is datgene dat het framework ontvangt, terwijl het <code>Request</code> datgene is dat de server (intern) verstuurt.</p>
+</div>
+<h2 id="stap-3-de-kernel">Stap 3: De Kernel<a class="headerlink" href="#stap-3-de-kernel" title="Permanent link">&para;</a></h2>
+<p>Nu hebben we al bijna de hele infrastructuur die nodig is om een eerste <em>round trip</em> te kunnen uitvoeren. Het enige dat we nog nodig hebben is de <em>Kernel</em>.</p>
+<p>In een web-framework is de <em>Kernel</em> de <em>kern</em> van de applicatie 😎. Het is de centrale klasse die verantwoordelijk is voor het opstarten, configureren, en afhandelen van verzoeken. We gaan dit ding in de komende weken nog uitgebreid tegenkomen, maar voor nu hoeft -ie niet zo gek veel te doen.</p>
+<p>Maak een klasse <code>Kernel</code> die de <code>KernelInterface</code> implementeert (die staat in <code>vendor/hanze/itvb21web2-interfaces/src/Kernel</code>). Zoals je ziet overerft dit ding van <code>RequestHandlerInterface</code> die maar één methode heeft: <code>handle(ServerRequest):Response</code>. Dít is dus de methode die uiteindelijk een request omzet in een response.</p>
+<p>Maak in de <code>handle</code>-methode van <code>Kernel</code> een nieuwe <code>Response</code> aan met gewoon een hard gecodeerde tekst als inhoud. Retourneer dit nieuwe object.</p>
+<h2 id="stap-4-de-klasse-request-en-response">Stap 4: de klasse <code>Request</code> en <code>Response</code><a class="headerlink" href="#stap-4-de-klasse-request-en-response" title="Permanent link">&para;</a></h2>
+<p>De methode <code>handle</code> moet een <code>ResponseInterface</code> teruggeven. Gelukkig hebben we hierboven een klasse <code>Response</code> gemaakt dit deze interface implementeert. Dit ding is een subklasse van <code>Message</code>, die in de constructor onder andere een string mee kan krijgen. Maak in <code>Response</code> een constructor die een string ontvangt en geef deze string door aan de superklasse. </p>
+<p>De constructor van <code>Message</code> vereist nog twee andere parameters: <code>protocol_version</code> en <code>headers</code>. Voor nu is het prima als je gewoon <code>"1.1"</code> en een lege array in stopt.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Een constructor in een php-klasse heeft de signature <code>public function __construct(...)</code>. Om de constructor van de superklasse aan te roepen, gebruik je <code>parent::__construct(...)</code>.</p>
+</div>
+<p>De klasse <code>Request</code> is ook een subklasse van <code>Message</code>. Voorzie <code>Request</code> van een constructor waarmee je standaardwaarden voor de vereiste parameters aan de superklasse meegeeft (<code>parent::construct("1/1", []., "")</code>). In <a href="iteratie2.html">de volgende iteratie</a> zullen we dit verbeteren.</p>
+<p>Implementeer tenslotte de methode <code>getBody()</code> in de klasse <code>Message</code>. Deze methode moet eenvoudig de <code>body</code> teruggeven die bij het aanmaken van een <code>Message</code> wordt meegegeven. Bestudeer de constructor van deze klasse om te zien hoe dit werkt.</p>
+<h2 id="de-frontcontroller">De frontcontroller<a class="headerlink" href="#de-frontcontroller" title="Permanent link">&para;</a></h2>
+<p>In web-frameworks zoals deze is de <em>frontcontroller</em> het script dat het request in eerste instantie opvangt. In ons geval is dat het script <code>public/index.php</code>. Dit bestand bestaat nu nog uit maar één regel: <code>echo 'Hello world!;</code>. Het is de bedoeling dat we deze regel vervangen door het opzetten van de objecten-graaf op basis van de infrastructuur die we hierboven hebben gemaakt.</p>
+<div class="highlight"><pre><span></span><code><span class="x">$app = new Kernel();</span>
+<span class="x">$request = new ServerRequest();</span>
+<span class="x">$response = $app-&gt;handle($request);</span>
+<span class="x">echo $response-&gt;getBody();</span>
+</code></pre></div>
+<p>Nu kun je een server opstarten om de boel te testen. Ga naar de <em>root</em> van je project en start een php-ontwikkelserver op:</p>
+<div class="highlight"><pre><span></span><code>php<span class="w"> </span>-S<span class="w"> </span>localhost:8000<span class="w"> </span>-t<span class="w"> </span>public
+</code></pre></div>
+<p>Als je nu met een browser naar <code>localhost:8000</code> gaat, zul je (als het goed is) de tekst te zien krijgen die je in de <code>handle</code>-methode van de Kernel hebt gebruikt om een <code>Response</code>-object aan te maken.</p>
+<p><img alt="Het resultaat van deze eerste iteratie" src="../imgs/iteratie1.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      HG 2025
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../js/imgs.js"></script>
+      
+        <script src="../js/matjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
