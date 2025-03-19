@@ -405,6 +405,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#beschrijving-van-de-inhoud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beschrijving van de inhoud
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#stap-1-het-bestand-indexhtml" class="md-nav__link">
     <span class="md-ellipsis">
       Stap 1: het bestand index.html
@@ -426,6 +435,15 @@
   <a href="#stap-3-output-buffering" class="md-nav__link">
     <span class="md-ellipsis">
       Stap 3: Output buffering
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stap-4-een-beter-pad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stap 4: Een beter pad
     </span>
   </a>
   
@@ -474,6 +492,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#beschrijving-van-de-inhoud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beschrijving van de inhoud
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#stap-1-het-bestand-indexhtml" class="md-nav__link">
     <span class="md-ellipsis">
       Stap 1: het bestand index.html
@@ -500,6 +527,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#stap-4-een-beter-pad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stap 4: Een beter pad
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -517,7 +553,9 @@
 
 
 <h1 id="iteratie-3-model-view-controller">Iteratie 3: Model View Controller<a class="headerlink" href="#iteratie-3-model-view-controller" title="Permanent link">&para;</a></h1>
-<p>Nu we in staat zijn om vanuit onze frondcontroller een stuk tekst in de browser te laten zien, is het zaak om deze tekst in een separaat bestand onder te brengen. Het zou immers niet handig zij om in onze <em>Kernel</em> alle mogelijke pagina's op te nemen die ons framework kan laten zien: dat zou de klasse erg vervuilen met html, wat de boel onoverzichtelijk en ononderhoudbaar zou maken. </p>
+<h2 id="beschrijving-van-de-inhoud">Beschrijving van de inhoud<a class="headerlink" href="#beschrijving-van-de-inhoud" title="Permanent link">&para;</a></h2>
+<p>Je implementeert een model-view-controllerarchitectuur in de eigen webapplicatie voor de eindopdracht door eigen routing en templating componenten te ontwikkelen aan de hand van de patterns die in de colleges besproken zijn.</p>
+<p>Nu we in staat zijn om vanuit onze frontcontroller een stuk tekst in de browser te laten zien, is het zaak om deze tekst in een separaat bestand onder te brengen. Het zou immers niet handig zij om in onze <em>Kernel</em> alle mogelijke pagina's op te nemen die ons framework kan laten zien: dat zou de klasse erg vervuilen met html, wat de boel onoverzichtelijk en ononderhoudbaar zou maken. </p>
 <p>De html-bestanden die we gaan maken, vormen min of meer de <em>View</em> in <a href="">het model-view-controller ontwerppatroon</a>. Feitelijk zijn dit niet per se html-bestanden, maar meer staketsels van html, die we later via de controller gaan vullen met data uit het model. Hierom spreken we niet van html-bestanden, maar van html-<em>templates</em>, of kortweg <em>templates</em>.</p>
 <p><img alt="Algemene architectuur van het framwork na deze iteratie" src="../imgs/mvc.png" /></p>
 <p>Het is een beetje een discusie waar op je <em>file system</em> je deze templates neerzet, maar in deze uitwerking gaan we uit van een directory <code>tempates</code> die <em>naast</em> de directories <code>public</code> en <code>src</code> staat:</p>
@@ -525,8 +563,8 @@
 ├─<span class="w"> </span>composer.json
 ├─<span class="w"> </span>public/
 ├─<span class="w"> </span>src/
-├─<span class="w"> </span>templates
-├─<span class="w"> </span>vendor
+├─<span class="w"> </span>templates/
+├─<span class="w"> </span>vendor/
 </code></pre></div>
 <h2 id="stap-1-het-bestand-indexhtml">Stap 1: het bestand <code>index.html</code><a class="headerlink" href="#stap-1-het-bestand-indexhtml" title="Permanent link">&para;</a></h2>
 <p>De eerste pagina die we gaan maken is het bestand <code>index.html</code>. Maak dit bestand aan in je <code>templates</code> directory en zet hier valide html in die de bezoeker vriendelijk verwelkomt. Voor nu is het prima om even de naam, die we na de vorige iteratie konden weergeven, te negeren – die voegen we later wel weer toe.</p>
@@ -557,6 +595,10 @@
 <p>De methode <code>eval</code> is natuurlijk erg gevaarlijk, omdat dit gewoon de code als php uitvoert. De infrastructuur die we nu hebben opgezet maakt het bijvoorbeeld erg gemakkelijk om allerlei gevaarlijke scripts in ons framework te injecteren. Dat gaan we op een later tijdstip nog wel veranderen.</p>
 </div>
 <p><img alt="Het resultaat na deze twee stappen van de derde iteratie" src="../imgs/iteratie3-1.png" /></p>
+<h2 id="stap-4-een-beter-pad">Stap 4: Een beter pad<a class="headerlink" href="#stap-4-een-beter-pad" title="Permanent link">&para;</a></h2>
+<p>Op dit moment is het request dat we moeten doen om onze vriendelijke welkomstboodschap op het scherm te krijgen wat ingewikkeld, met die vraagtekens en is-gelijktekens. We willen eigenlijk een logischer en moderner pad intypen om hetzelfde resultaat te krijgen. Wat we eigenlijk willen is dat een request naar <code>http://localhost:8080/welkom/Henk</code> de welkomstpagina voor Henk laat zien.</p>
+<p>Om dit voor elkaar te krijgen, moeten we allereerst de klasse <code>Request</code> aanpassen. Deze klasse heeft een (nu nog lege) methode <code>getUri():UriInterface</code>. </p>
+<p>```php</p>
 
 
 
