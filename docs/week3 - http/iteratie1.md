@@ -9,7 +9,11 @@ Je begint met de ontwikkeling van de eigen webapplicatie voor de eindopdracht do
 
 ## stap 1: installeer de afhankelijkheden
 
-Nadat je de repository hebt gecloned, moet je de afhankelijkheden (dependencies) nog downloaden. De dependency-manager van php is [composer](https://getcomposer.org/). Zie ook [de betreffende kennisclip hierover](https://video.hanze.nl/edit/0_d3k1p1hb).  Composer maakt gebruik van het bestand `package.json` om te checken welke afhankelijkheden er allemaal in het project zitten. Als je op dit bestand klikt, verschijnt er een dialoogvenster waarmee je direct composer kunt downloaden. Als dit gedaan is, kun je vervolgens de dependencies installeren: die komen in de directory `vendor` terecht.
+Nadat je de repository hebt gecloned, moet je de afhankelijkheden (dependencies) nog downloaden. De dependency-manager van php is [composer](https://getcomposer.org/). Zie ook [de betreffende kennisclip hierover](https://video.hanze.nl/media/Kennisclip+web+2%3A+4.Composer/0_d3k1p1hb). 
+
+<iframe id="kaltura_player" src='https://api.eu.kaltura.com/p/337/embedPlaykitJs/uiconf_id/23454676?iframeembed=true&amp;entry_id=0_d3k1p1hb&amp;config%5Bprovider%5D=%7B%22widgetId%22%3A%220_lh93jvqf%22%7D&amp;config%5Bplayback%5D=%7B%22startTime%22%3A0%7D'  style="width: 400px;height: 285px;border: 0;" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" title="Kennisclip web 2: 4.Composer"></iframe>
+
+Composer maakt gebruik van het bestand `package.json` om te checken welke afhankelijkheden er allemaal in het project zitten. Als je op dit bestand klikt, verschijnt er een dialoogvenster waarmee je direct composer kunt downloaden. Als dit gedaan is, kun je vervolgens de dependencies installeren: die komen in de directory `vendor` terecht.
 
 ![Composer ziet dat de `vendor`-directory nog niet bestaat](../imgs/composer1.png)
 ![Download de meest recente composer.phar](../imgs/composer2.png)
