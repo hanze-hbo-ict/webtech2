@@ -58,7 +58,7 @@ De constructor van `Message` vereist nog twee andere parameters: `protocol_versi
 !!! Tip
     Een constructor in een php-klasse heeft de signature `public function __construct(...)`. Om de constructor van de superklasse aan te roepen, gebruik je `parent::__construct(...)`.
 
-De klasse `Request` is ook een subklasse van `Message`. Voorzie `Request` van een constructor waarmee je standaardwaarden voor de vereiste parameters aan de superklasse meegeeft (`parent::construct("1/1", []., "")`). In [de volgende iteratie](iteratie2.md) zullen we dit verbeteren.
+De klasse `Request` is ook een subklasse van `Message`. Voorzie `Request` van een constructor waarmee je standaardwaarden voor de vereiste parameters aan de superklasse meegeeft (`parent::construct("1/1", []., "")`) – we zullen dit in [de refactorslag van deze week](refactor.md) verbeteren.
 
 Implementeer tenslotte de methode `getBody()` in de klasse `Message`. Deze methode moet eenvoudig de `body` teruggeven die bij het aanmaken van een `Message` wordt meegegeven. Bestudeer de constructor van deze klasse om te zien hoe dit werkt.
 
