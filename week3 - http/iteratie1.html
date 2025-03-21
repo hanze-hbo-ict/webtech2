@@ -404,6 +404,28 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="refactor.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Refactoring
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -459,6 +481,28 @@
   
   <span class="md-ellipsis">
     Iteratie 3: Model View Controller
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week4%20-%20mvc/iteratie4.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Iteratie 4: meer paden
     
   </span>
   
@@ -577,7 +621,10 @@
 <p>Tijdens het werkcollege pas je de ingebouwde functionaliteiten die PHP heeft om web requests te verwerken toe, met name de zogeheten superglobals. Daarnaast ga je aan de slag met het framework Symfony; dit framework zal gedurende het vak gebruikt worden als concreet voorbeeld van de behandelde patterns. In dit werkcollege pas je de component HttpFoundation toe, die de request- en responsestructuur van Symfony omvat.</p>
 <p>Je begint met de ontwikkeling van de eigen webapplicatie voor de eindopdracht door een eigen request handling component te ontwikkelen aan de hand van de patterns die in de colleges aan bod gekomen zijn. </p>
 <h2 id="stap-1-installeer-de-afhankelijkheden">stap 1: installeer de afhankelijkheden<a class="headerlink" href="#stap-1-installeer-de-afhankelijkheden" title="Permanent link">&para;</a></h2>
-<p>Nadat je de repository hebt gecloned, moet je de afhankelijkheden (dependencies) nog downloaden. De dependency-manager van php is <a href="https://getcomposer.org/">composer</a>. Zie ook <a href="https://video.hanze.nl/edit/0_d3k1p1hb">de betreffende kennisclip hierover</a>.  Composer maakt gebruik van het bestand <code>package.json</code> om te checken welke afhankelijkheden er allemaal in het project zitten. Als je op dit bestand klikt, verschijnt er een dialoogvenster waarmee je direct composer kunt downloaden. Als dit gedaan is, kun je vervolgens de dependencies installeren: die komen in de directory <code>vendor</code> terecht.</p>
+<p>Nadat je de repository hebt gecloned, moet je de afhankelijkheden (dependencies) nog downloaden. De dependency-manager van php is <a href="https://getcomposer.org/">composer</a>. Zie ook <a href="https://video.hanze.nl/media/Kennisclip+web+2%3A+4.Composer/0_d3k1p1hb">de betreffende kennisclip hierover</a>. </p>
+<iframe id="kaltura_player" src='https://api.eu.kaltura.com/p/337/embedPlaykitJs/uiconf_id/23454676?iframeembed=true&amp;entry_id=0_d3k1p1hb&amp;config%5Bprovider%5D=%7B%22widgetId%22%3A%220_lh93jvqf%22%7D&amp;config%5Bplayback%5D=%7B%22startTime%22%3A0%7D'  style="width: 400px;height: 285px;border: 0;" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" title="Kennisclip web 2: 4.Composer"></iframe>
+
+<p>Composer maakt gebruik van het bestand <code>package.json</code> om te checken welke afhankelijkheden er allemaal in het project zitten. Als je op dit bestand klikt, verschijnt er een dialoogvenster waarmee je direct composer kunt downloaden. Als dit gedaan is, kun je vervolgens de dependencies installeren: die komen in de directory <code>vendor</code> terecht.</p>
 <p><img alt="Composer ziet dat de vendor-directory nog niet bestaat" src="../imgs/composer1.png" />
 <img alt="Download de meest recente composer.phar" src="../imgs/composer2.png" />
 <img alt="Installeer de dependencies" src="../imgs/composer3.png" /></p>
@@ -608,7 +655,7 @@
 <p class="admonition-title">Tip</p>
 <p>Een constructor in een php-klasse heeft de signature <code>public function __construct(...)</code>. Om de constructor van de superklasse aan te roepen, gebruik je <code>parent::__construct(...)</code>.</p>
 </div>
-<p>De klasse <code>Request</code> is ook een subklasse van <code>Message</code>. Voorzie <code>Request</code> van een constructor waarmee je standaardwaarden voor de vereiste parameters aan de superklasse meegeeft (<code>parent::construct("1/1", []., "")</code>). In <a href="iteratie2.html">de volgende iteratie</a> zullen we dit verbeteren.</p>
+<p>De klasse <code>Request</code> is ook een subklasse van <code>Message</code>. Voorzie <code>Request</code> van een constructor waarmee je standaardwaarden voor de vereiste parameters aan de superklasse meegeeft (<code>parent::construct("1/1", []., "")</code>) – we zullen dit in <a href="refactor.html">de refactorslag van deze week</a> verbeteren.</p>
 <p>Implementeer tenslotte de methode <code>getBody()</code> in de klasse <code>Message</code>. Deze methode moet eenvoudig de <code>body</code> teruggeven die bij het aanmaken van een <code>Message</code> wordt meegegeven. Bestudeer de constructor van deze klasse om te zien hoe dit werkt.</p>
 <h2 id="de-frontcontroller">De frontcontroller<a class="headerlink" href="#de-frontcontroller" title="Permanent link">&para;</a></h2>
 <p>In web-frameworks zoals deze is de <em>frontcontroller</em> het script dat het request in eerste instantie opvangt. In ons geval is dat het script <code>public/index.php</code>. Dit bestand bestaat nu nog uit maar één regel: <code>echo 'Hello world!;</code>. Het is de bedoeling dat we deze regel vervangen door het opzetten van de objecten-graaf op basis van de infrastructuur die we hierboven hebben gemaakt.</p>

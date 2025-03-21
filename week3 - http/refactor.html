@@ -12,13 +12,13 @@
         <meta name="author" content="Bart Barnard en Ralf van den Broek">
       
       
-        <link rel="canonical" href="https://hanze-hbo-ict.github.io/webtech2/week4%20-%20mvc/iteratie3.html">
+        <link rel="canonical" href="https://hanze-hbo-ict.github.io/webtech2/week3%20-%20http/refactor.html">
       
       
-        <link rel="prev" href="../week3%20-%20http/refactor.html">
+        <link rel="prev" href="iteratie2.html">
       
       
-        <link rel="next" href="iteratie4.html">
+        <link rel="next" href="../week4%20-%20mvc/iteratie3.html">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Iteratie 3: Model View Controller - Webtechnologie 2</title>
+        <title>Refactoring - Webtechnologie 2</title>
       
     
     
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#iteratie-3-model-view-controller" class="md-skip">
+        <a href="#refactoring" class="md-skip">
           Ga naar inhoud
         </a>
       
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Iteratie 3: Model View Controller
+              Refactoring
             
           </span>
         </div>
@@ -231,17 +231,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -256,7 +258,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Week3   http
@@ -270,7 +272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week3%20-%20http/iteratie1.html" class="md-nav__link">
+      <a href="iteratie1.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -292,7 +294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week3%20-%20http/iteratie2.html" class="md-nav__link">
+      <a href="iteratie2.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -306,73 +308,6 @@
   
 
               
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week3%20-%20http/refactor.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Refactoring
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Week4   mvc
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            Week4   mvc
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -394,7 +329,7 @@
           
   
   <span class="md-ellipsis">
-    Iteratie 3: Model View Controller
+    Refactoring
     
   </span>
   
@@ -402,11 +337,11 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="iteratie3.html" class="md-nav__link md-nav__link--active">
+      <a href="refactor.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Iteratie 3: Model View Controller
+    Refactoring
     
   </span>
   
@@ -429,36 +364,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#beschrijving-van-de-inhoud" class="md-nav__link">
+  <a href="#de-klassen-serverrequest-request-en-message" class="md-nav__link">
     <span class="md-ellipsis">
-      Beschrijving van de inhoud
+      De klassen ServerRequest, Request en Message
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#stap-1-het-bestand-indexhtml" class="md-nav__link">
+  <a href="#de-klasse-response" class="md-nav__link">
     <span class="md-ellipsis">
-      Stap 1: het bestand index.html
+      De klasse Response
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#stap-2-aanpassen-van-de-kernel" class="md-nav__link">
+  <a href="#laatste-stappen" class="md-nav__link">
     <span class="md-ellipsis">
-      Stap 2: aanpassen van de Kernel
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#stap-3-output-buffering" class="md-nav__link">
-    <span class="md-ellipsis">
-      Stap 3: output buffering
+      Laatste stappen
     </span>
   </a>
   
@@ -473,6 +399,49 @@
 
               
             
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Week4   mvc
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Week4   mvc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
               
                 
   
@@ -480,7 +449,29 @@
   
   
     <li class="md-nav__item">
-      <a href="iteratie4.html" class="md-nav__link">
+      <a href="../week4%20-%20mvc/iteratie3.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Iteratie 3: Model View Controller
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week4%20-%20mvc/iteratie4.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -529,36 +520,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#beschrijving-van-de-inhoud" class="md-nav__link">
+  <a href="#de-klassen-serverrequest-request-en-message" class="md-nav__link">
     <span class="md-ellipsis">
-      Beschrijving van de inhoud
+      De klassen ServerRequest, Request en Message
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#stap-1-het-bestand-indexhtml" class="md-nav__link">
+  <a href="#de-klasse-response" class="md-nav__link">
     <span class="md-ellipsis">
-      Stap 1: het bestand index.html
+      De klasse Response
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#stap-2-aanpassen-van-de-kernel" class="md-nav__link">
+  <a href="#laatste-stappen" class="md-nav__link">
     <span class="md-ellipsis">
-      Stap 2: aanpassen van de Kernel
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#stap-3-output-buffering" class="md-nav__link">
-    <span class="md-ellipsis">
-      Stap 3: output buffering
+      Laatste stappen
     </span>
   </a>
   
@@ -580,49 +562,35 @@
 
 
 
-<h1 id="iteratie-3-model-view-controller">Iteratie 3: Model View Controller<a class="headerlink" href="#iteratie-3-model-view-controller" title="Permanent link">&para;</a></h1>
-<h2 id="beschrijving-van-de-inhoud">Beschrijving van de inhoud<a class="headerlink" href="#beschrijving-van-de-inhoud" title="Permanent link">&para;</a></h2>
-<p>Je implementeert een model-view-controllerarchitectuur in de eigen webapplicatie voor de eindopdracht door eigen routing en templating componenten te ontwikkelen aan de hand van de patterns die in de colleges besproken zijn.</p>
-<p>Nu we in staat zijn om vanuit onze frontcontroller een stuk tekst in de browser te laten zien, is het zaak om deze tekst in een separaat bestand onder te brengen. Het zou immers niet handig zij om in onze <em>Kernel</em> alle mogelijke pagina's op te nemen die ons framework kan laten zien: dat zou de klasse erg vervuilen met html, wat de boel onoverzichtelijk en ononderhoudbaar zou maken. </p>
-<p>De html-bestanden die we gaan maken, vormen min of meer de <em>View</em> in <a href="">het model-view-controller ontwerppatroon</a>. Feitelijk zijn dit niet per se html-bestanden, maar meer staketsels van html, die we later via de controller gaan vullen met data uit het model. Hierom spreken we niet van html-bestanden, maar van html-<em>templates</em>, of kortweg <em>templates</em>.</p>
-<p><img alt="Algemene architectuur van het framwork na deze iteratie" src="../imgs/mvc.png" /></p>
-<p>Het is een beetje een discusie waar op je <em>file system</em> je deze templates neerzet, maar in deze uitwerking gaan we uit van een directory <code>tempates</code> die <em>naast</em> de directories <code>public</code> en <code>src</code> staat:</p>
-<div class="highlight"><pre><span></span><code>app/
-├─<span class="w"> </span>composer.json
-├─<span class="w"> </span>public/
-├─<span class="w"> </span>src/
-├─<span class="w"> </span>templates/
-├─<span class="w"> </span>vendor/
-</code></pre></div>
-<h2 id="stap-1-het-bestand-indexhtml">Stap 1: het bestand <code>index.html</code><a class="headerlink" href="#stap-1-het-bestand-indexhtml" title="Permanent link">&para;</a></h2>
-<p>De eerste pagina die we gaan maken is het bestand <code>index.html</code>. Maak dit bestand aan in je <code>templates</code> directory en zet hier valide html in die de bezoeker vriendelijk verwelkomt. Voor nu is het prima om even de naam, die we na de vorige iteratie konden weergeven, te negeren – die voegen we later wel weer toe.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>De meeste webservers – en de ontwikkelserver van php die we steeds gebruiken – zijn zo geconfigueerd dat als een bezoeker geen specifiek bestand opvraagt via de <code>GET</code>-methode (dus een request naar bijvoorbeeld <code>localhost:8080/directory/</code>) de server op zoek gaan naar een bestand <code>index.html</code> of <code>index.php</code>. Hoewel we dit later met de hand gaan uitwerken, is dit dus wel het gedrag dat verwacht wordt.</p>
-</div>
-<h2 id="stap-2-aanpassen-van-de-kernel">Stap 2: aanpassen van de Kernel<a class="headerlink" href="#stap-2-aanpassen-van-de-kernel" title="Permanent link">&para;</a></h2>
-<p>Nu we dit bestand hebben gemaakt, is het van belang dat we in de <code>handle</code>-methode van onze <code>Kernel</code> de inhoud <em>hiervan</em> terugsturen in plaats van een hard-gecodeerde string. Maakt gebruik van de php-methode <a href="https://php.net/file_get_contents"><code>file_get_contents()</code></a> om de inhoud van het zojuist gemaakte html-bestand als één langs string in te lezen, en maak een <code>Response</code> aan met deze string als body.</p>
+<h1 id="refactoring">Refactoring<a class="headerlink" href="#refactoring" title="Permanent link">&para;</a></h1>
+<p>Nu we een eenvoudige round-trip hebben kunnen maken, is het tijd om de code wat te verbeteren. Omdat we in deze eerste iteratie eigenlijk maar maar met drie klassen hebben gewerkt, hoeven we alleen deze maar te bekijken.</p>
+<h2 id="de-klassen-serverrequest-request-en-message">De klassen <code>ServerRequest</code>, <code>Request</code> en <code>Message</code><a class="headerlink" href="#de-klassen-serverrequest-request-en-message" title="Permanent link">&para;</a></h2>
+<p>De belangrijkste omissie die we in deze iteratie hebben laten liggen is dat we de exacte constructors van de superklassen van <code>ServerRequest</code> nog hebben genegeerd. Bestudeer de methoden uit de interface van de verschillende klassen om te kijken welke informatie in welke klasse moet worden opgeslagen. Zo heeft bijvoorbeeld de klasse <code>Request</code> een methode <code>getMethod()</code>, die de betreffende <a href="">htt-method</a> (<code>POST</code>, <code>GET</code>, <code>UPDATE</code>, <code>DELETE</code>, ...) als string teruggeeft.</p>
+<p>Omdat we (nog) geen instantie van <code>Request</code> direct aanmaken, moeten we deze informatie tijdens het aanmaken van de subklasse, <code>ServerRequest</code> meegeven. Gelukkig hebben we in deze subklasse de beschikking over deze informatie: die kun je vinden in <code>$_SERVER['REQUEST_METHOD']</code>, die juist door deze klasse wordt geëncapsuleerd. </p>
+<p>Een ander voorbeeld: de klasse <code>Message</code> heeft een methode <code>getHeaders()</code> die alle http-headers als array teruggeeft. Ook deze gegevens moeten via <code>ServerRequest</code> en <code>Request</code> aan de <code>Message</code> doorgegeven worden. Let op: alle http-headers zitten in de superglobal <code>$_SERVER</code>: dat zijn namelijk die gegevens uit deze array waarvan de <em>naam</em> (de <em>key</em>) met <code>HTTP_</code> begint. Je zult deze gegevens dus uit deze array moeten filteren en de liggende streepjes vervangen door koppeltekens.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Hoewel je nu met het bestand <code>Kernel</code> aan het werk bent, moet je voor de juiste paden denken vanuit het bestand <code>public/index.php</code>: dit is immers het bestand dat door de server wordt uitgevoerd. In een latere stap gaan we dit nog wel aanpassen en configureerbaar maken.</p>
+<p>Je kunt natuurlijk gewoon door de <code>$_SERVER</code> heen itereren, checken of de sleutel (<em>key</em>) begint met <code>HTTP_</code> en in dat geval de corresponderende waarde gebruiken. Maar je kunt ook gebruik maken van de methoden <a href=""><code>array_filter()</code></a> en <a href=""><code>array_map</code></a>.</p>
 </div>
-<h2 id="stap-3-output-buffering">Stap 3: output buffering<a class="headerlink" href="#stap-3-output-buffering" title="Permanent link">&para;</a></h2>
-<p>Zoals tijdens de demonstratie is toegelicht, hebben bestanden die je in aan een methode hebt toegevoegd dezelfde <em>scope</em> als deze methode zelf. Dat houdt in dat je in die bestanden gebruik kunt maken van variabelen die je eerder in die methode hebt gedefinieerd. </p>
-<p>Maak gebruik van dit gegeven om de naam van de persoon (feitelijk de <em>value</em> van de query-parameter met de <em>key</em> <code>name</code>) weer via de template weer te geven. Je kunt dit eenvoudig doen door de in template gebruik te maken van <code>&lt;?= ... ?&gt;</code>-constructie die je tijdens het plenaire deel hebt gezien: zo kun je de template eigenlijk zien als een string met een php-script.</p>
-<p>Om deze string als script vervolgens uit te voeren, kun je gebruik maken van <a href="https://php.net/eval">de php-functie <code>eval</code></a>. Dit print evenwel direct de inhoud naar de client (de browser), maar willen controle houden over wat er exact gebeurt. Gelukkig heeft php een techniek om de output te bufferen en op een later moment op te halen, aan te passen of alsnog te printen: hiervoor zijn met name de functies <a href="https://www.php.net/manual/en/function.ob-start.php"><code>ob_start()</code></a>, <a href="https://www.php.net/manual/en/function.ob-get-clean.php"><code>ob_get_clean()</code></a> van belang. Bekijk eventueel <a href="https://www.php.net/manual/en/book.outcontrol.php">de uitgebreide documentatie op php.net</a>. </p>
-<p>Nog één kleine stap: om te voorkomen dat <code>eval</code> de html als php probeert uit te voeren, moeten we het geheel voorzien van een 'einde-php-tag': <code>?&gt;</code>. Zie het voorbeeld hieronder:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$naam = &#39;Henk&#39;;</span>
-<span class="x">ob_start();</span>
-<span class="x">$f = &#39;?&gt;&#39; . file_get_contents(&#39;index.html&#39;);</span>
-<span class="x">eval($f);</span>
-<span class="x">$res = ob_get_clean();</span>
-<span class="x">echo $res;</span>
-</code></pre></div>
+<p>Het is een klein beetje arbitrair waar je deze wijzigingen exact uitvoert, maar het is het netste als je dit doet in <code>ServerRequest</code>, zodat zowel <code>Request</code> als <code>Message</code> gewoon een nette array ontvangen.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>De methode <code>eval</code> is natuurlijk erg gevaarlijk, omdat dit gewoon de code als php uitvoert. De infrastructuur die we nu hebben opgezet maakt het bijvoorbeeld erg gemakkelijk om allerlei gevaarlijke scripts in ons framework te injecteren. Dat gaan we op een later tijdstip nog wel veranderen.</p>
+<p>We hebben het hierboven wel steeds over de superglobal, maar het is natuurlijk niet de bedoeling dat je <em>deze</em> gebruikt. Je moet telkens de geëncapsuleerde versie uit <code>ServerRequest</code> gebruiken.</p>
 </div>
-<p><img alt="Het resultaat na deze twee stappen van de derde iteratie" src="../imgs/iteratie3-1.png" /></p>
+<p>Doe dit voor alle velden uit de verschillende klassen waarvan je ziet dat ze die gegevens nodig hebben. Als het goed is zul je zien dat de constructor van <code>ServerRequest</code> vijf superglobals nodig heeft. Let op dat de parameter <code>$body</code> in <code>Message</code> ook leeg kan zijn: een <code>GET</code>-request heeft in de regel geen body, net zo min als een <code>POST</code>-response.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>De klasse <code>Request</code> heeft een property van het type <code>UriInterface</code> nodig. Het is prima om die voor nu even optioneel te maken, of om hier ook een string in te kunnen zetten (gebruik hiervoor <code>UriInterface|string</code>): in [de volgende iteratie] gaan we hier uitgebreid op in.</p>
+</div>
+<h2 id="de-klasse-response">De klasse <code>Response</code><a class="headerlink" href="#de-klasse-response" title="Permanent link">&para;</a></h2>
+<p>Ga door de methoden van <code>Response</code> om te onderzoeken welke velden deze klasse allemaal nodig heeft (feitelijk op dezelfde manier als hierboven). Let er ook op dat deze klasse ook overerft van <code>Message</code>, dus ook hier moeten we de constructor aanpassen zodat die <code>Message</code> op een goede manier wordt aangemaakt. </p>
+<p>Zorg voor logische standaardwaarden van alle velden (<code>status-code</code> = 200, bijvoorbeeld, of <code>protocol-version</code> = "1.1"): dat maakt het aanmaken van instanties van deze klasse een stuk eenvoudiger.</p>
+<p>In de vorige iteratie hebben we gewoon <code>echo $response-&gt;getBody()</code> gebruikt om de response naar de client te sturen. Het is veel netter om hier een speciale statische functie voor te maken, die een <code>Response</code>-object ontvangt, de body hiervan uitprint en niet teruggeeft: dan hebben we fijn één specifieke plek waar we de boel naar de client terugsturen en weten we waar we op een later tijdstip moeten zijn om (bijvoorbeeld) de headers mee te sturen.</p>
+<p>Maak in <code>Response</code> een methode <code>static send(Response $response)</code> die precies dit doet. Voor nu is het nog voldoende om gewoon die body uit te printen – op een later tijdstip gaan we dit nog wel (significant) aanpassen.</p>
+<h2 id="laatste-stappen">Laatste stappen<a class="headerlink" href="#laatste-stappen" title="Permanent link">&para;</a></h2>
+<p>Implementeer de methoden die nu nog commentaar hebben dat ze geïmplementeerd moeten worden.</p>
+<p>Pas de <em>frontcontroller</em> aan, zodat deze gebruik maakt van de statische methode <code>Response::send()</code>.</p>
+<p>Check opnieuw de werking van het geheel. Bij een refactorslag is het niet de bedoeling dat je nieuwe functionaliteit toevoegt, dus als het goed is, is er niks veranderd.</p>
 
 
 
