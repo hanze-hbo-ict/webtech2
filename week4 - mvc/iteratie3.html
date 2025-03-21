@@ -434,16 +434,7 @@
         <li class="md-nav__item">
   <a href="#stap-3-output-buffering" class="md-nav__link">
     <span class="md-ellipsis">
-      Stap 3: Output buffering
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#stap-4-een-beter-pad" class="md-nav__link">
-    <span class="md-ellipsis">
-      Stap 4: Een beter pad
+      Stap 3: output buffering
     </span>
   </a>
   
@@ -521,16 +512,7 @@
         <li class="md-nav__item">
   <a href="#stap-3-output-buffering" class="md-nav__link">
     <span class="md-ellipsis">
-      Stap 3: Output buffering
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#stap-4-een-beter-pad" class="md-nav__link">
-    <span class="md-ellipsis">
-      Stap 4: Een beter pad
+      Stap 3: output buffering
     </span>
   </a>
   
@@ -578,7 +560,7 @@
 <p class="admonition-title">Tip</p>
 <p>Hoewel je nu met het bestand <code>Kernel</code> aan het werk bent, moet je voor de juiste paden denken vanuit het bestand <code>public/index.php</code>: dit is immers het bestand dat door de server wordt uitgevoerd. In een latere stap gaan we dit nog wel aanpassen en configureerbaar maken.</p>
 </div>
-<h2 id="stap-3-output-buffering">Stap 3: Output buffering<a class="headerlink" href="#stap-3-output-buffering" title="Permanent link">&para;</a></h2>
+<h2 id="stap-3-output-buffering">Stap 3: output buffering<a class="headerlink" href="#stap-3-output-buffering" title="Permanent link">&para;</a></h2>
 <p>Zoals tijdens de demonstratie is toegelicht, hebben bestanden die je in aan een methode hebt toegevoegd dezelfde <em>scope</em> als deze methode zelf. Dat houdt in dat je in die bestanden gebruik kunt maken van variabelen die je eerder in die methode hebt gedefinieerd. </p>
 <p>Maak gebruik van dit gegeven om de naam van de persoon (feitelijk de <em>value</em> van de query-parameter met de <em>key</em> <code>name</code>) weer via de template weer te geven. Je kunt dit eenvoudig doen door de in template gebruik te maken van <code>&lt;?= ... ?&gt;</code>-constructie die je tijdens het plenaire deel hebt gezien: zo kun je de template eigenlijk zien als een string met een php-script.</p>
 <p>Om deze string als script vervolgens uit te voeren, kun je gebruik maken van <a href="https://php.net/eval">de php-functie <code>eval</code></a>. Dit print evenwel direct de inhoud naar de client (de browser), maar willen controle houden over wat er exact gebeurt. Gelukkig heeft php een techniek om de output te bufferen en op een later moment op te halen, aan te passen of alsnog te printen: hiervoor zijn met name de functies <a href="https://www.php.net/manual/en/function.ob-start.php"><code>ob_start()</code></a>, <a href="https://www.php.net/manual/en/function.ob-get-clean.php"><code>ob_get_clean()</code></a> van belang. Bekijk eventueel <a href="https://www.php.net/manual/en/book.outcontrol.php">de uitgebreide documentatie op php.net</a>. </p>
@@ -595,10 +577,6 @@
 <p>De methode <code>eval</code> is natuurlijk erg gevaarlijk, omdat dit gewoon de code als php uitvoert. De infrastructuur die we nu hebben opgezet maakt het bijvoorbeeld erg gemakkelijk om allerlei gevaarlijke scripts in ons framework te injecteren. Dat gaan we op een later tijdstip nog wel veranderen.</p>
 </div>
 <p><img alt="Het resultaat na deze twee stappen van de derde iteratie" src="../imgs/iteratie3-1.png" /></p>
-<h2 id="stap-4-een-beter-pad">Stap 4: Een beter pad<a class="headerlink" href="#stap-4-een-beter-pad" title="Permanent link">&para;</a></h2>
-<p>Op dit moment is het request dat we moeten doen om onze vriendelijke welkomstboodschap op het scherm te krijgen wat ingewikkeld, met die vraagtekens en is-gelijktekens. We willen eigenlijk een logischer en moderner pad intypen om hetzelfde resultaat te krijgen. Wat we eigenlijk willen is dat een request naar <code>http://localhost:8080/welkom/Henk</code> de welkomstpagina voor Henk laat zien.</p>
-<p>Om dit voor elkaar te krijgen, moeten we allereerst de klasse <code>Request</code> aanpassen. Deze klasse heeft een (nu nog lege) methode <code>getUri():UriInterface</code>. </p>
-<p>```php</p>
 
 
 
