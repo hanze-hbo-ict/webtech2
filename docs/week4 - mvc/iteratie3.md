@@ -34,7 +34,7 @@ Nu we dit bestand hebben gemaakt, is het van belang dat we in de `handle`-method
 !!! Tip
     Hoewel je nu met het bestand `Kernel` aan het werk bent, moet je voor de juiste paden denken vanuit het bestand `public/index.php`: dit is immers het bestand dat door de server wordt uitgevoerd. In een latere stap gaan we dit nog wel aanpassen en configureerbaar maken.
 
-## Stap 3: Output buffering
+## Stap 3: output buffering
 
 Zoals tijdens de demonstratie is toegelicht, hebben bestanden die je in aan een methode hebt toegevoegd dezelfde *scope* als deze methode zelf. Dat houdt in dat je in die bestanden gebruik kunt maken van variabelen die je eerder in die methode hebt gedefinieerd. 
 
@@ -57,15 +57,3 @@ echo $res;
     De methode `eval` is natuurlijk erg gevaarlijk, omdat dit gewoon de code als php uitvoert. De infrastructuur die we nu hebben opgezet maakt het bijvoorbeeld erg gemakkelijk om allerlei gevaarlijke scripts in ons framework te injecteren. Dat gaan we op een later tijdstip nog wel veranderen.
 
 ![Het resultaat na deze twee stappen van de derde iteratie](../imgs/iteratie3-1.png)
-
-## Stap 4: Een beter pad
-
-Op dit moment is het request dat we moeten doen om onze vriendelijke welkomstboodschap op het scherm te krijgen wat ingewikkeld, met die vraagtekens en is-gelijktekens. We willen eigenlijk een logischer en moderner pad intypen om hetzelfde resultaat te krijgen. Wat we eigenlijk willen is dat een request naar `http://localhost:8080/welkom/Henk` de welkomstpagina voor Henk laat zien.
-
-Om dit voor elkaar te krijgen, moeten we allereerst de klasse `Request` aanpassen. Deze klasse heeft een (nu nog lege) methode `getUri():UriInterface`. 
-
-
-```php
-
-
-
