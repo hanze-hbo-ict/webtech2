@@ -18,6 +18,8 @@
         <link rel="prev" href="iteratie3.html">
       
       
+        <link rel="next" href="iteratie5.html">
+      
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
@@ -457,10 +459,94 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#stap-2-een-beter-pad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stap 2: een beter pad
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stap-3-een-tweede-pad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stap 3: een tweede pad
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="iteratie5.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Iteratie 5: Controllers en Routers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="iteratie6.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Iteratie 6: de klasse Route
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="refactor.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Refactoring
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -508,6 +594,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#stap-2-een-beter-pad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stap 2: een beter pad
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stap-3-een-tweede-pad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stap 3: een tweede pad
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -541,7 +645,32 @@
 <p class="admonition-title">Tip</p>
 <p>We slaan de gegevens voor nu in <code>Uri</code> nog even op als string. Op een later tijdstip zullen we dit nog moeten aanpassen, omdat niet alle karakters zonder meer in een webadres kunnen voorkomen, én omdat we mogelijk nog een eigen protocol gaan ontwerpen.</p>
 </div>
-<p>Maak vervolgens in <code>ServerRequest</code> een instantie aan van <code>Uri</code>, waarin de gevraagde gegevens via de waarden uit de betreffende encapsulaties van de superglobals worden opgeslagen. Pas het type van de parameter uit <code>Request</code> aan dat deze geen strings meer kan bevatten en geef het zojuist gecreëerde object vanuit <code>ServerRequest</code> mee.</p>
+<p>Maak vervolgens in <code>ServerRequest</code> een instantie aan van <code>Uri</code>, waarin de gevraagde gegevens via de waarden uit de betreffende encapsulaties van de superglobals worden opgeslagen – let op dat je juiste standaard-waarden aan de betreffende velden meegeeft wanneer deze niet bestaan. Pas het type van de parameter uit <code>Request</code> aan dat deze geen strings meer kan bevatten en geef het zojuist gecreëerde <code>Uri</code>-object vanuit <code>ServerRequest</code> mee.</p>
+<p>Feitelijk zijn we hier bezig met een refactorslag, die we wel echt nodig hebben om de volgende stap uit te kunnen worden. Na afloop van deze stap is dus als het goed is geen extra functionaliteit geïntroduceerd.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Wanneer we in deze uitleg spreken over de superglobals, bedoelen we natuurlijk de weergave of opslag daarvan in het <code>ServerRequest</code>-object.</p>
+</div>
+<h2 id="stap-2-een-beter-pad">Stap 2: een beter pad<a class="headerlink" href="#stap-2-een-beter-pad" title="Permanent link">&para;</a></h2>
+<p>De manier waarop we nu onze vriendelijke welkomstpagina te zien krijgen is wat onduidelijk. Je moet maar net weten dat je een request moet doen naar <code>index.php?naam=&lt;naam&gt;</code>; sowieso is het wat ongebruikelijk om met dit soort request-parameters te werken. Laten we dit pad vervangen door een request naar <code>welkom/&lt;naam&gt;</code> – dat kunnen we nu doen, doordat we alle noodzakelijke gegevens in het <code>Uri</code>-object hebben opgeslagen.</p>
+<p>Vooralsnog wordt het noodzakelijke werk gedaan in de methode <code>handle</code> van de <code>Kernel</code>. Deze methode krijgt de <code>request</code> mee, waarin de <code>uri</code> zit, waarin het veld <code>path</code> is opgeslagen. Wanneer we dit gegeven even uitprinten, krijgen we het volgende resultaat:</p>
+<div class="highlight"><pre><span></span><code><span class="x"># in de klasse `Kernel`:    </span>
+<span class="x">public function handle(ServerRequestInterface $request): ResponseInterface</span>
+<span class="x">    {</span>
+<span class="x">        print_r($request-&gt;getUri()-&gt;getPath());</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</code></pre></div>
+<p><img alt="Door gebruik te maken van het uri-object kunnen we het volledige pad opvragen" src="../imgs/path-info.png" /></p>
+<p>Maak gebruik van dit gegeven om te checken of de request gedaan is naar <code>welkom/&lt;naam&gt;</code>. Je zult hiervoor dus het pad moeten splitsen op <code>/</code>, waarbij het eerste deel gelijk moet zijn aan <code>welkom</code> en het tweede deel de <em>naam</em> bevat (die is dus variabel). Pas hiervoor de code in <code>handle</code> in <code>Kernel</code> aan.</p>
+<h2 id="stap-3-een-tweede-pad">Stap 3: een tweede pad<a class="headerlink" href="#stap-3-een-tweede-pad" title="Permanent link">&para;</a></h2>
+<p>Nu we deze techniek hebben, kunnen we natuurlijk relatief eenvoudig een tweede pad toevoegen. Hiervoor hoeven we in principe alleen maar het betreffende pad in de <code>handle</code>-methode van de <code>Kernel</code> op te nemen en de juiste output te genereren.</p>
+<p>Maak een tweede html-pagina aan in de <code>templates</code>-directory; wat erin staat is voor nu niet zo gek belangrijk – wij gebruiken in dit voorbeeld een pagina die het weer weergeeft. Bedenk een voor de hand liggend pad dat iemand moet intypen om deze pagina te zien te krijgen (in ons voorbeeld is dit een request naar <code>/weer</code>). Voeg in de <code>handle</code>-methode in de <code>Kernel</code> een check toe die kijkt of het invulde pad hiermee correspondeert en geef de betreffende pagina terug.</p>
+<p><img alt="We hebben nu een tweede pad gemaakt 💪" src="../imgs/tweede_pad.png" /></p>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>We hebben nu de infrastructuur opgezet om eenvoudig verschillende requests door verschillende onderdelen van ons script af te handelen. Voorlopig is het alleen maar het laten zien van verschillende pagina's, maar je kunt deze structuur natuurlijk gebruiken om heel verschillende wegen door de applicatie aan te spreken.</p>
+</div>
 
 
 

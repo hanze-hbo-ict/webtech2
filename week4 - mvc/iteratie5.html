@@ -12,13 +12,13 @@
         <meta name="author" content="Bart Barnard en Ralf van den Broek">
       
       
-        <link rel="canonical" href="https://hanze-hbo-ict.github.io/webtech2/week4%20-%20mvc/iteratie3.html">
+        <link rel="canonical" href="https://hanze-hbo-ict.github.io/webtech2/week4%20-%20mvc/iteratie5.html">
       
       
-        <link rel="prev" href="../week3%20-%20http/refactor.html">
+        <link rel="prev" href="iteratie4.html">
       
       
-        <link rel="next" href="iteratie4.html">
+        <link rel="next" href="iteratie6.html">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Iteratie 3: Model View Controller - Webtechnologie 2</title>
+        <title>Iteratie 5: Controllers en Routers - Webtechnologie 2</title>
       
     
     
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#iteratie-3-model-view-controller" class="md-skip">
+        <a href="#iteratie-5-controllers-en-routers" class="md-skip">
           Ga naar inhoud
         </a>
       
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Iteratie 3: Model View Controller
+              Iteratie 5: Controllers en Routers
             
           </span>
         </div>
@@ -378,31 +378,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Iteratie 3: Model View Controller
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="iteratie3.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="iteratie3.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -412,62 +391,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Inhoudsopgave
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#beschrijving-van-de-inhoud" class="md-nav__link">
-    <span class="md-ellipsis">
-      Beschrijving van de inhoud
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#stap-1-het-bestand-indexhtml" class="md-nav__link">
-    <span class="md-ellipsis">
-      Stap 1: het bestand index.html
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#stap-2-aanpassen-van-de-kernel" class="md-nav__link">
-    <span class="md-ellipsis">
-      Stap 2: aanpassen van de Kernel
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#stap-3-output-buffering" class="md-nav__link">
-    <span class="md-ellipsis">
-      Stap 3: output buffering
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -499,10 +422,31 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="iteratie5.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Iteratie 5: Controllers en Routers
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="iteratie5.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -512,6 +456,44 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stap-1-de-controllers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stap 1: de controllers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stap-2-de-router" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stap 2: de router
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -595,36 +577,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#beschrijving-van-de-inhoud" class="md-nav__link">
+  <a href="#stap-1-de-controllers" class="md-nav__link">
     <span class="md-ellipsis">
-      Beschrijving van de inhoud
+      Stap 1: de controllers
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#stap-1-het-bestand-indexhtml" class="md-nav__link">
+  <a href="#stap-2-de-router" class="md-nav__link">
     <span class="md-ellipsis">
-      Stap 1: het bestand index.html
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#stap-2-aanpassen-van-de-kernel" class="md-nav__link">
-    <span class="md-ellipsis">
-      Stap 2: aanpassen van de Kernel
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#stap-3-output-buffering" class="md-nav__link">
-    <span class="md-ellipsis">
-      Stap 3: output buffering
+      Stap 2: de router
     </span>
   </a>
   
@@ -646,49 +610,38 @@
 
 
 
-<h1 id="iteratie-3-model-view-controller">Iteratie 3: Model View Controller<a class="headerlink" href="#iteratie-3-model-view-controller" title="Permanent link">&para;</a></h1>
-<h2 id="beschrijving-van-de-inhoud">Beschrijving van de inhoud<a class="headerlink" href="#beschrijving-van-de-inhoud" title="Permanent link">&para;</a></h2>
-<p>Je implementeert een model-view-controllerarchitectuur in de eigen webapplicatie voor de eindopdracht door eigen routing en templating componenten te ontwikkelen aan de hand van de patterns die in de colleges besproken zijn.</p>
-<p>Nu we in staat zijn om vanuit onze frontcontroller een stuk tekst in de browser te laten zien, is het zaak om deze tekst in een separaat bestand onder te brengen. Het zou immers niet handig zij om in onze <em>Kernel</em> alle mogelijke pagina's op te nemen die ons framework kan laten zien: dat zou de klasse erg vervuilen met html, wat de boel onoverzichtelijk en ononderhoudbaar zou maken. </p>
-<p>De html-bestanden die we gaan maken, vormen min of meer de <em>View</em> in <a href="">het model-view-controller ontwerppatroon</a>. Feitelijk zijn dit niet per se html-bestanden, maar meer staketsels van html, die we later via de controller gaan vullen met data uit het model. Hierom spreken we niet van html-bestanden, maar van html-<em>templates</em>, of kortweg <em>templates</em>.</p>
-<p><img alt="Algemene architectuur van het framwork na deze iteratie" src="../imgs/mvc.png" /></p>
-<p>Het is een beetje een discusie waar op je <em>file system</em> je deze templates neerzet, maar in deze uitwerking gaan we uit van een directory <code>tempates</code> die <em>naast</em> de directories <code>public</code> en <code>src</code> staat:</p>
-<div class="highlight"><pre><span></span><code>app/
-├─<span class="w"> </span>composer.json
-├─<span class="w"> </span>public/
-├─<span class="w"> </span>src/
-├─<span class="w"> </span>templates/
-├─<span class="w"> </span>vendor/
-</code></pre></div>
-<h2 id="stap-1-het-bestand-indexhtml">Stap 1: het bestand <code>index.html</code><a class="headerlink" href="#stap-1-het-bestand-indexhtml" title="Permanent link">&para;</a></h2>
-<p>De eerste pagina die we gaan maken is het bestand <code>index.html</code>. Maak dit bestand aan in je <code>templates</code> directory en zet hier valide html in die de bezoeker vriendelijk verwelkomt. Voor nu is het prima om even de naam, die we na de vorige iteratie konden weergeven, te negeren – die voegen we later wel weer toe.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>De meeste webservers – en de ontwikkelserver van php die we steeds gebruiken – zijn zo geconfigueerd dat als een bezoeker geen specifiek bestand opvraagt via de <code>GET</code>-methode (dus een request naar bijvoorbeeld <code>localhost:8080/directory/</code>) de server op zoek gaan naar een bestand <code>index.html</code> of <code>index.php</code>. Hoewel we dit later met de hand gaan uitwerken, is dit dus wel het gedrag dat verwacht wordt.</p>
-</div>
-<h2 id="stap-2-aanpassen-van-de-kernel">Stap 2: aanpassen van de Kernel<a class="headerlink" href="#stap-2-aanpassen-van-de-kernel" title="Permanent link">&para;</a></h2>
-<p>Nu we dit bestand hebben gemaakt, is het van belang dat we in de <code>handle</code>-methode van onze <code>Kernel</code> de inhoud <em>hiervan</em> terugsturen in plaats van een hard-gecodeerde string. Maakt gebruik van de php-methode <a href="https://php.net/file_get_contents"><code>file_get_contents()</code></a> om de inhoud van het zojuist gemaakte html-bestand als één langs string in te lezen, en maak een <code>Response</code> aan met deze string als body.</p>
+<h1 id="iteratie-5-controllers-en-routers">Iteratie 5: Controllers en Routers<a class="headerlink" href="#iteratie-5-controllers-en-routers" title="Permanent link">&para;</a></h1>
+<p>Hoewel de functionaliteit nu op zich prima werkt, kun je je wel voorstellen dat dit niet schaalt. Hoe meer verschillende paden we in onze applicatie willen opvangen, hoe ingewikkelder onze <code>handle</code>-methode in de <code>Kernel</code> wordt. Dit is een gevolg van het feit dat we alle functionaliteit feitelijk in precies deze methode hebben gestopt. In het kader van <a href="https://en.wikipedia.org/wiki/Separation_of_concerns"><em>seperation of concerns</em></a> is het veel beter om de verschillende stappen door verschillende klassen uit te laten voeren. Dat is waar de <em>Controllers</em> in beeld komen.</p>
+<p>Bekijk nog eens de betreffende dia uit het theoriecollege (zie hieronder). Het gaat hier met name om de onderste helft van dit plaatje. De bezoeker heeft een informatiebehoefte en typt hiervoor een url in de navigatiebalk van de webbrowsers, waardoor een request wordt geïnitieerd. Zoals je ziet wordt dit request opgevangen door een controller, die vervolgens de view update die weer naar de client wordt teruggestuurd. Voor nu negeren we even het model.</p>
+<p><img alt="Sequentie-diagram van een MVC – let op dat dit in een webcontext *ietsje* anders werkt dan in een traditionele applicatie" src="../imgs/mvc-sequence.png" /></p>
+<h2 id="stap-1-de-controllers">Stap 1: de controllers<a class="headerlink" href="#stap-1-de-controllers" title="Permanent link">&para;</a></h2>
+<p>Controllers zijn feitelijk klassen die - via de Kernel – de requests afhandelen. Hierom moeten alle controllers instanties zijn van de <code>RequestHandlerInterface</code>, die je in <code>vendor/psr/http-server-handler/src/RequestHandlerInterface.php</code> kunt vinden. </p>
+<p>Bestudeer deze interface. Zoals je ziet heeft deze maar één methode <code>handle(ServerRequestInterface):ResponseInterface</code>. Dit lijkt natuurlijk als twee druppels water op de <code>handle</code>-methode in onze <code>Kernel</code>-klasse, maar controllers zitten nét even ergens anders in de round-trip:</p>
+<ol>
+<li><code>Kernel</code> wordt aangemaakt.</li>
+<li><code>ServerRequestObject</code> wordt aangemaakt.</li>
+<li>De methode <code>handle</code> in <code>Kernel</code> wordt aangeroepen.</li>
+<li>In deze methode wordt de juiste <code>Controller</code> voor deze <code>Request</code> gebruikt.</li>
+<li>Deze <code>Controller</code> geeft de bijhorende <code>Response</code> aan de <code>Kernel</code> terug.</li>
+<li>De <code>Kernel</code> retourneert deze <code>Response</code>.</li>
+<li>Deze <code>Response</code> wordt naar de client gestuurd.</li>
+</ol>
+<p>Zo zie je dat de <em>Kernel</em> de verantwoordelijkheid van het maken van de juiste <code>Response</code> verlegt naar een <code>Controller</code>. Omdat alle controllers dezelfde interface implementeren, maakt het voor de Kernel niet uit <em>wie</em> de response heeft gemaakt: deze klasse is alleen maar geïnteresseerd in <em>dat</em> er een response komt die hij kan terugsturen naar de frontcontroller.</p>
+<p>Momenteel hebben we twee pagina's: <code>welkom</code> en <code>weer</code>. Maak een nieuwe directory <code>Controllers</code> met hierin voor beide pagina's een klasse die de <code>RequestHandlerInterface</code> implementeert. Noem de klassen <code>WelkomController</code> en <code>WeerController</code> (je verwacht het niet 😎).</p>
+<p>Verplaats de functionaliteit die je tot nu toe in de <code>handle</code>-methode van de <code>Kernel</code> hebt staan naar de <code>handle</code>-methode van de betreffende controller – bedenk zelf een goede techniek om die variabele uit het pad (<code>&lt;naam&gt;</code>) in de <code>WelkomController</code> te krijgen. Gebruik de check die je in <code>Kernel</code> hebt staan om één van beide pagina's te laten zien om een instantie van de juiste controller aan te maken. Roep vervolgens de <code>handle</code>-methode op deze controller aan en retourneer de response die je van de controller terugkrijgt.</p>
+<h2 id="stap-2-de-router">Stap 2: de router<a class="headerlink" href="#stap-2-de-router" title="Permanent link">&para;</a></h2>
+<p>Onze applicatie begint nu werkelijk te groeien. We kunnen verschillende paden opvragen en afhankelijk hiervan fijn verschillende pagina's laten zien. Het is alleen nog wel een beetje stom dat we onze <em>kernel</em> moeten openen om te zien welke controllers bij welk pad horen - en ook om eventuele nieuwe controllers en nieuwe paden toe te voegen. Dat is wat onhandig, het schaalt niet en past ook niet bij het <a href="https://en.wikipedia.org/wiki/Single-responsibility_principle">Single Responsibility Principle</a>. Het is tijd om de klasse <code>Router</code> toe te voegen.</p>
+<p>De klasse <code>Router</code> is verantwoordelijk voor het hijbouden welke controller bij welk pad (welke <em>route</em>) hoort. Bekijk nog een keer de betreffende dia uit het hoorcollege:</p>
+<p><img alt="De router bepaalt welke controller bij welke route hoort" src="../imgs/mvc-router.png" /></p>
+<p>Bestudeer de interface <code>RoutingInterface</code>, die je kunt vinden in <code>vendor/hanze/itvb21web2-interfaces/src/Routing/RouterInterface.php</code>. Maak een klasse <code>Router</code> in de namespace <code>Framework\Routing</code> die deze interace implementeert. De methode <code>route</code> geeft een <code>RequestHandlerInterface</code> terug, wat natuurlijk onze <em>controllers</em> zijn die we in de stap hierboven hebben gemaakt.</p>
+<p>Maak in je frontcontroller een associatieve array met de paden (routes) als <em>key</em> en de controllers als <em>value</em>. Let op: het volledige pad kan natuurlijk iets zijn als <code>welkom/&lt;naam&gt;</code> of <code>blogpost/&lt;id&gt;</code>. Begin met het matchen van de letterlijke string (dus bijvoorbeeld <code>welkom</code> en <code>weer</code>, in ons voorbeeld). We zullen in de laatste iteratie van deze week dit nog wat uitbreiden. Zorg ervoor dat de waarden van deze array de volledige klassenaam van de controller die bij dit pad hoort is.</p>
+<p>Maak vervolgens, eveneens in je frontcontroller, een instantie aan van <code>Route</code>, waarbij je deze assiociatieve array meegeeft. Geeft tenslotte deze intantie weer mee aan de <code>Kernel</code> die je al eerder hebt gemaakt (je zult dus de constructor van <code>Kernel</code> ook moeten aanpassen).</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Hoewel je nu met het bestand <code>Kernel</code> aan het werk bent, moet je voor de juiste paden denken vanuit het bestand <code>public/index.php</code>: dit is immers het bestand dat door de server wordt uitgevoerd. In een latere stap gaan we dit nog wel aanpassen en configureerbaar maken.</p>
+<p>Om in php het volledige pad van een klasse te krijgen, kun je gebruik maken van de syntax <code>KlassseNaam::class</code>.</p>
 </div>
-<h2 id="stap-3-output-buffering">Stap 3: output buffering<a class="headerlink" href="#stap-3-output-buffering" title="Permanent link">&para;</a></h2>
-<p>Zoals tijdens de demonstratie is toegelicht, hebben bestanden die je in aan een methode hebt toegevoegd dezelfde <em>scope</em> als deze methode zelf. Dat houdt in dat je in die bestanden gebruik kunt maken van variabelen die je eerder in die methode hebt gedefinieerd. </p>
-<p>Maak gebruik van dit gegeven om de naam van de persoon (feitelijk de <em>value</em> van de query-parameter met de <em>key</em> <code>name</code>) weer via de template weer te geven. Je kunt dit eenvoudig doen door de in template gebruik te maken van <code>&lt;?= ... ?&gt;</code>-constructie die je tijdens het plenaire deel hebt gezien: zo kun je de template eigenlijk zien als een string met een php-script.</p>
-<p>Om deze string als script vervolgens uit te voeren, kun je gebruik maken van <a href="https://php.net/eval">de php-functie <code>eval</code></a>. Dit print evenwel direct de inhoud naar de client (de browser), maar willen controle houden over wat er exact gebeurt. Gelukkig heeft php een techniek om de output te bufferen en op een later moment op te halen, aan te passen of alsnog te printen: hiervoor zijn met name de functies <a href="https://www.php.net/manual/en/function.ob-start.php"><code>ob_start()</code></a>, <a href="https://www.php.net/manual/en/function.ob-get-clean.php"><code>ob_get_clean()</code></a> van belang. Bekijk eventueel <a href="https://www.php.net/manual/en/book.outcontrol.php">de uitgebreide documentatie op php.net</a>. </p>
-<p>Nog één kleine stap: om te voorkomen dat <code>eval</code> de html als php probeert uit te voeren, moeten we het geheel voorzien van een 'einde-php-tag': <code>?&gt;</code>. Zie het voorbeeld hieronder:</p>
-<div class="highlight"><pre><span></span><code><span class="x">$naam = &#39;Henk&#39;;</span>
-<span class="x">ob_start();</span>
-<span class="x">$f = &#39;?&gt;&#39; . file_get_contents(&#39;index.html&#39;);</span>
-<span class="x">eval($f);</span>
-<span class="x">$res = ob_get_clean();</span>
-<span class="x">echo $res;</span>
-</code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>De methode <code>eval</code> is natuurlijk erg gevaarlijk, omdat dit gewoon de code als php uitvoert. De infrastructuur die we nu hebben opgezet maakt het bijvoorbeeld erg gemakkelijk om allerlei gevaarlijke scripts in ons framework te injecteren. Dat gaan we op een later tijdstip nog wel veranderen.</p>
-</div>
-<p><img alt="Het resultaat na deze twee stappen van de derde iteratie" src="../imgs/iteratie3-1.png" /></p>
+<p>Pas tenslotte de methode <code>handle</code> in <code>Kernel</code> aan, zodat deze gebruik maakt van de instantie van <code>Route</code> die je bij het aanmaken hiervan hebt meegegeven. Test je resultaat tot zover door een nieuwe route met bijhorende controller en view (html-pagina) te maken. Maak ook een <code>FileNotFoundController</code> met bijhorende pagina en zorg ervoor dat deze controller wordt gebruikt wanneer in de methode <code>route</code> in <code>Router</code> het opgevraagd pad niet bestaat (dat wil zeggen niet in de associatieve array voorkomt).</p>
+<p><img alt="Pagina zoals het hoort (links) en een standaard 404 (rechts)" src="../imgs/404.png" /></p>
 
 
 
