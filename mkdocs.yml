@@ -13,6 +13,8 @@ theme:
   icon:
     logo: 'material/library'
   language: 'nl'
+  features:
+     - content.code.copy
   include_sidebar: false
 extra_css:
   - css/extra.css

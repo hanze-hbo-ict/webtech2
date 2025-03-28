@@ -36,7 +36,7 @@ De klasse `Router` is verantwoordelijk voor het hijbouden welke controller bij w
 
 Bestudeer de interface `RoutingInterface`, die je kunt vinden in `vendor/hanze/itvb21web2-interfaces/src/Routing/RouterInterface.php`. Maak een klasse `Router` in de namespace `Framework\Routing` die deze interace implementeert. De methode `route` geeft een `RequestHandlerInterface` terug, wat natuurlijk onze *controllers* zijn die we in de stap hierboven hebben gemaakt.
 
-Maak in je frontcontroller een associatieve array met de paden (routes) als *key* en de controllers als *value*. Let op: het volledige pad kan natuurlijk iets zijn als `welkom/<naam>` of `blogpost/<id>`. Begin met het matchen van de letterlijke string (dus bijvoorbeeld `welkom` en `weer`, in ons voorbeeld). We zullen in de laatste iteratie van deze week dit nog wat uitbreiden. Zorg ervoor dat de waarden van deze array de volledige klassenaam van de controller die bij dit pad hoort is.
+Maak in je frontcontroller een associatieve array met de paden (routes) als *key* en de controllers als *value*. Let op: het volledige pad kan natuurlijk iets zijn als `welkom/<naam>` of `blogpost/<id>`. Begin met het matchen van de letterlijke string (dus bijvoorbeeld `welkom` en `weer`, in ons voorbeeld). Zorg ervoor dat de waarden van deze array de volledige klassenaam van de controller die bij dit pad hoort is. We zullen in [de laatste iteratie van deze week](iteratie6.md) dit nog wat uitbreiden.
 
 Maak vervolgens, eveneens in je frontcontroller, een instantie aan van `Route`, waarbij je deze assiociatieve array meegeeft. Geeft tenslotte deze intantie weer mee aan de `Kernel` die je al eerder hebt gemaakt (je zult dus de constructor van `Kernel` ook moeten aanpassen).
 
