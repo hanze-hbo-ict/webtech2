@@ -31,6 +31,8 @@ Nu we een separate klasse voor de routes zelf hebben, moeten we daar natuurlijk 
 
 Pas de methode `handle` in de `Kernel` aan, zodat deze van de `Router` de juiste `Route` terugkrijgt. Roep vervolgens op deze `Route` de methode aan die je in `Route` hebt gemaakt om de bijhorende controller aan te maken en uit te voeren. Retourneer de response aan de frontcontroller. Zie onderstaand sequentiediagram om een beeld te krijgen van hoe deze klassen allemaal met elkaar samenwerken.
 
+![De volledige sequentie van afhandeling na iteratie 6](../imgs/handle-sequence.png)
+
 
 
 
