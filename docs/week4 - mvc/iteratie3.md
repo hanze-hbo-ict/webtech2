@@ -32,7 +32,9 @@ De eerste pagina die we gaan maken is het bestand `index.html`. Maak dit bestand
 Nu we dit bestand hebben gemaakt, is het van belang dat we in de `handle`-methode van onze `Kernel` de inhoud *hiervan* terugsturen in plaats van een hard-gecodeerde string. Maakt gebruik van de php-methode [`file_get_contents()`](https://php.net/file_get_contents) om de inhoud van het zojuist gemaakte html-bestand als één langs string in te lezen, en maak een `Response` aan met deze string als body.
 
 !!! Tip
-    Hoewel je nu met het bestand `Kernel` aan het werk bent, moet je voor de juiste paden denken vanuit het bestand `public/index.php`: dit is immers het bestand dat door de server wordt uitgevoerd. In een latere stap gaan we dit nog wel aanpassen en configureerbaar maken.
+    Om dit goed te laten werken moet je natuurlijk weten waar de `Kernel` zich bevindt in de scope van de hele applicatie. Omdat je de applicatie runt vanaf je frontcontroller (`/public/public`) kan het zijn dat je bestanden wilt opzoeken vanaf die directory, terwijl als je denkt vanuit de `Kernel` je een heel ander pad moet gebruiken naar de template.
+
+    Je kunt gebruik maken van de constante `__DIR__` om te weten te komen waar het bestand staat waar die `__DIR__` in genoemd is. Als je die weglaat, gaat php standaard uit van het bestand dat je runt (`public/index.php` in dit geval dus).
 
 ## Stap 3: output buffering
 
