@@ -656,6 +656,7 @@
 <p>In de vorige iteratie maakten we voor de routes gebruik van een associatieve array die paden koppelde aan controllers. Nu we een nieuwe separate klasse daarvoor hebben, moeten we daar natuurlijk van gebruik maken. Zorg ervoor dat de array in je frontcontroller alleen nog maar instanties van de klasse <code>Route</code> bevat.</p>
 <p>Nu we een separate klasse voor de routes zelf hebben, moeten we daar natuurlijk gebruik van maken in onze <code>Router</code>. Pas de methode <code>route</code> aan, zodat deze over de lijst van opgeslagen routes heen loopt en telkens checkt of het request past op de gegeven route (maak dus gebruik van de methode die je in de eerste stap van deze iteratie hebt gemaakt). Als de match gevonden is, retourneer dan die route.</p>
 <p>Pas de methode <code>handle</code> in de <code>Kernel</code> aan, zodat deze van de <code>Router</code> de juiste <code>Route</code> terugkrijgt. Roep vervolgens op deze <code>Route</code> de methode aan die je in <code>Route</code> hebt gemaakt om de bijhorende controller aan te maken en uit te voeren. Retourneer de response aan de frontcontroller. Zie onderstaand sequentiediagram om een beeld te krijgen van hoe deze klassen allemaal met elkaar samenwerken.</p>
+<p><img alt="De volledige sequentie van afhandeling na iteratie 6" src="../imgs/handle-sequence.png" /></p>
 
 
 
