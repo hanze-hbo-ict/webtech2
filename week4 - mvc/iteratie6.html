@@ -26,7 +26,7 @@
     
     
       
-        <title>Iteratie 6: de klasse Route - Webtechnologie 2</title>
+        <title>Iteratie 6: een betere matching - Webtechnologie 2</title>
       
     
     
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#iteratie-6-de-klasse-route" class="md-skip">
+        <a href="#iteratie-6-een-betere-matching" class="md-skip">
           Ga naar inhoud
         </a>
       
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Iteratie 6: de klasse Route
+              Iteratie 6: een betere matching
             
           </span>
         </div>
@@ -456,16 +456,65 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Iteratie 6: een betere matching
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="iteratie6.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Iteratie 6: de klasse Route
+    Iteratie 6: een betere matching
     
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stap-1-de-klasse-route" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stap 1: de klasse Route
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stap-2-aanpassingen-in-de-klasse-router" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stap 2: aanpassingen in de klasse Router
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -521,6 +570,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stap-1-de-klasse-route" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stap 1: de klasse Route
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stap-2-aanpassingen-in-de-klasse-router" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stap 2: aanpassingen in de klasse Router
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -535,7 +610,7 @@
 
 
 
-<h1 id="iteratie-6-de-klasse-route">Iteratie 6: de klasse <code>Route</code><a class="headerlink" href="#iteratie-6-de-klasse-route" title="Permanent link">&para;</a></h1>
+<h1 id="iteratie-6-een-betere-matching">Iteratie 6: een betere matching<a class="headerlink" href="#iteratie-6-een-betere-matching" title="Permanent link">&para;</a></h1>
 <p>Als laatste stap in deze week moeten we er nog voor zorgen dat de <em>routes</em> beter worden gematcht. Vooralsnog gebruikten we een hard string als key in de klasse <code>Route</code>, maar da's natuurlijk niet handig. Er kan natuurlijk veel meer in zo'n route zitten terwijl het door dezelde controller moet worden afgehandeld. Bekijk de volgende voorbeelden:</p>
 <table>
 <thead>
@@ -543,6 +618,7 @@
 <th>methode</th>
 <th>route</th>
 <th>match</th>
+<th>variable-part</th>
 <th>controller</th>
 </tr>
 </thead>
@@ -551,24 +627,35 @@
 <td><code>GET</code></td>
 <td><code>/welkom/piet</code></td>
 <td><code>/welkom</code></td>
+<td>'piet'</td>
 <td><code>WelkomController</code></td>
 </tr>
 <tr>
 <td><code>GET</code></td>
 <td><code>/welkom/Chantal</code></td>
 <td><code>/welkom</code></td>
+<td>'Chantal'</td>
 <td><code>WelkomController</code></td>
 </tr>
 <tr>
 <td><code>POST</code></td>
-<td><code>/welkom/piet</code></td>
+<td><code>/welkom/henk</code></td>
 <td><code>/welkom</code></td>
+<td>'henk'</td>
 <td><code>WelkomController</code></td>
 </tr>
 </tbody>
 </table>
 <p>Om al deze mogelijke paden op te kunnen vangen, is het nodig dat we een nieuwe klasse <code>Route</code> maken, die op basis van een aantal gegevens bepaalt of de opgevraagde URI past bij deze route. Bestudeer het onderstaande klassediagram:</p>
 <p><img alt="De verhouding tussen Route en Router" src="../imgs/route-router.png" /></p>
+<h2 id="stap-1-de-klasse-route">Stap 1: de klasse <code>Route</code><a class="headerlink" href="#stap-1-de-klasse-route" title="Permanent link">&para;</a></h2>
+<p>Maak een klasse <code>Route</code> in dezelfde namespace als waar je je <code>Router</code> hebt gezet. Deze klasse zorgt feitelijk voor een koppeling tussen een <em>pad</em> en een bijhorende <em>controller</em>. Zorg ervoor dat bij het aanmaken van instanties van deze klasse deze beide gegevens moeten worden meegegeven. Je kunt natuurlijk ook verschillende routes hebben voor verschillende <em>typen</em> requests, afhankelijk van de http-methode. Zorg er ook voor dat dit in de klasse wordt opgenomen, waarbij je standaard uitgaat van <code>GET</code>.</p>
+<p>Voorzie deze klasse van een methode die een <code>ServerRequestInterface</code>-object ontvangt en op basis van de daarin geëncapsuleerde uri en methode teruggeeft of deze <code>Route</code> bij de request past of niet (het return-type van deze methode is dus <code>bool</code>). Je zult doet iets slims met <a href="https://regex101.com/">reguliere expressies</a> moeten doen om de verschillende mogelijkheden van een route te ondervangen (zie de tabel hierboven).</p>
+<p>Omdat de instanties van <code>Route</code> weten welke controller bij welk pad moet worden aangeroepen, is die de klasse waar we deze koppeling expliciet kunnen leggen. Maak hiervoor in <code>Route</code> een methode die opnieuw een <code>ServerRequestInterface</code> ontvangt en de methode <code>handle</code> aanroept op de controller die bij deze specifieke <code>Route</code>-instantie is opgeslagen. Deze methode retourneert dus feitelijk de <code>Response</code> die door de aangeroepen controller wordt teruggegeven.</p>
+<h2 id="stap-2-aanpassingen-in-de-klasse-router">Stap 2: aanpassingen in de klasse <code>Router</code><a class="headerlink" href="#stap-2-aanpassingen-in-de-klasse-router" title="Permanent link">&para;</a></h2>
+<p>In de vorige iteratie maakten we voor de routes gebruik van een associatieve array die paden koppelde aan controllers. Nu we een nieuwe separate klasse daarvoor hebben, moeten we daar natuurlijk van gebruik maken. Zorg ervoor dat de array in je frontcontroller alleen nog maar instanties van de klasse <code>Route</code> bevat.</p>
+<p>Nu we een separate klasse voor de routes zelf hebben, moeten we daar natuurlijk gebruik van maken in onze <code>Router</code>. Pas de methode <code>route</code> aan, zodat deze over de lijst van opgeslagen routes heen loopt en telkens checkt of het request past op de gegeven route (maak dus gebruik van de methode die je in de eerste stap van deze iteratie hebt gemaakt). Als de match gevonden is, retourneer dan die route.</p>
+<p>Pas de methode <code>handle</code> in de <code>Kernel</code> aan, zodat deze van de <code>Router</code> de juiste <code>Route</code> terugkrijgt. Roep vervolgens op deze <code>Route</code> de methode aan die je in <code>Route</code> hebt gemaakt om de bijhorende controller aan te maken en uit te voeren. Retourneer de response aan de frontcontroller. Zie onderstaand sequentiediagram om een beeld te krijgen van hoe deze klassen allemaal met elkaar samenwerken.</p>
 
 
 
@@ -619,7 +706,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
     
     
       <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>

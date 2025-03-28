@@ -510,7 +510,7 @@
         
   
   <span class="md-ellipsis">
-    Iteratie 6: de klasse Route
+    Iteratie 6: een betere matching
     
   </span>
   
@@ -634,7 +634,7 @@
 <p>De klasse <code>Router</code> is verantwoordelijk voor het hijbouden welke controller bij welk pad (welke <em>route</em>) hoort. Bekijk nog een keer de betreffende dia uit het hoorcollege:</p>
 <p><img alt="De router bepaalt welke controller bij welke route hoort" src="../imgs/mvc-router.png" /></p>
 <p>Bestudeer de interface <code>RoutingInterface</code>, die je kunt vinden in <code>vendor/hanze/itvb21web2-interfaces/src/Routing/RouterInterface.php</code>. Maak een klasse <code>Router</code> in de namespace <code>Framework\Routing</code> die deze interace implementeert. De methode <code>route</code> geeft een <code>RequestHandlerInterface</code> terug, wat natuurlijk onze <em>controllers</em> zijn die we in de stap hierboven hebben gemaakt.</p>
-<p>Maak in je frontcontroller een associatieve array met de paden (routes) als <em>key</em> en de controllers als <em>value</em>. Let op: het volledige pad kan natuurlijk iets zijn als <code>welkom/&lt;naam&gt;</code> of <code>blogpost/&lt;id&gt;</code>. Begin met het matchen van de letterlijke string (dus bijvoorbeeld <code>welkom</code> en <code>weer</code>, in ons voorbeeld). We zullen in de laatste iteratie van deze week dit nog wat uitbreiden. Zorg ervoor dat de waarden van deze array de volledige klassenaam van de controller die bij dit pad hoort is.</p>
+<p>Maak in je frontcontroller een associatieve array met de paden (routes) als <em>key</em> en de controllers als <em>value</em>. Let op: het volledige pad kan natuurlijk iets zijn als <code>welkom/&lt;naam&gt;</code> of <code>blogpost/&lt;id&gt;</code>. Begin met het matchen van de letterlijke string (dus bijvoorbeeld <code>welkom</code> en <code>weer</code>, in ons voorbeeld). Zorg ervoor dat de waarden van deze array de volledige klassenaam van de controller die bij dit pad hoort is. We zullen in <a href="iteratie6.html">de laatste iteratie van deze week</a> dit nog wat uitbreiden.</p>
 <p>Maak vervolgens, eveneens in je frontcontroller, een instantie aan van <code>Route</code>, waarbij je deze assiociatieve array meegeeft. Geeft tenslotte deze intantie weer mee aan de <code>Kernel</code> die je al eerder hebt gemaakt (je zult dus de constructor van <code>Kernel</code> ook moeten aanpassen).</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -692,7 +692,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
     
     
       <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
