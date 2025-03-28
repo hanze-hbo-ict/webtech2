@@ -670,7 +670,8 @@
 <p>Nu we dit bestand hebben gemaakt, is het van belang dat we in de <code>handle</code>-methode van onze <code>Kernel</code> de inhoud <em>hiervan</em> terugsturen in plaats van een hard-gecodeerde string. Maakt gebruik van de php-methode <a href="https://php.net/file_get_contents"><code>file_get_contents()</code></a> om de inhoud van het zojuist gemaakte html-bestand als één langs string in te lezen, en maak een <code>Response</code> aan met deze string als body.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Hoewel je nu met het bestand <code>Kernel</code> aan het werk bent, moet je voor de juiste paden denken vanuit het bestand <code>public/index.php</code>: dit is immers het bestand dat door de server wordt uitgevoerd. In een latere stap gaan we dit nog wel aanpassen en configureerbaar maken.</p>
+<p>Om dit goed te laten werken moet je natuurlijk weten waar de <code>Kernel</code> zich bevindt in de scope van de hele applicatie. Omdat je de applicatie runt vanaf je frontcontroller (<code>/public/public</code>) kan het zijn dat je bestanden wilt opzoeken vanaf die directory, terwijl als je denkt vanuit de <code>Kernel</code> je een heel ander pad moet gebruiken naar de template.</p>
+<p>Je kunt gebruik maken van de constante <code>__DIR__</code> om te weten te komen waar het bestand staat waar die <code>__DIR__</code> in genoemd is. Als je die weglaat, gaat php standaard uit van het bestand dat je runt (<code>public/index.php</code> in dit geval dus).</p>
 </div>
 <h2 id="stap-3-output-buffering">Stap 3: output buffering<a class="headerlink" href="#stap-3-output-buffering" title="Permanent link">&para;</a></h2>
 <p>Zoals tijdens de demonstratie is toegelicht, hebben bestanden die je in aan een methode hebt toegevoegd dezelfde <em>scope</em> als deze methode zelf. Dat houdt in dat je in die bestanden gebruik kunt maken van variabelen die je eerder in die methode hebt gedefinieerd. </p>
